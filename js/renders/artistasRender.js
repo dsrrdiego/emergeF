@@ -1,6 +1,6 @@
 function artistas(){
-    discosDiv.innerHTML='<h1>Problemas de conección, El servidor puede tardar unos minutos en encenderse...</h1>'
-    fetch(direccionApi + "/album") //traer los albums.
+  discosDiv.innerHTML='<h1>Problemas de conección, El servidor puede tardar unos minutos en encenderse...</h1>'
+  fetch(direccionApi + "/album") //traer los albums.
     // fetch( + "/album") //traer los albums.
       .then(response => {
         if (!response.ok) {
@@ -9,6 +9,7 @@ function artistas(){
         return response.json(); // Convierte la respuesta a un objeto JSON
       })
       .then(albums => {
+        discosDiv.innerHTML="";
         for (let i = 0; i < albums.length; i++) {
           let album = albums[i];
           let string = "";
