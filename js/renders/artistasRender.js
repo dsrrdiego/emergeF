@@ -1,6 +1,5 @@
 function artistas(){
-    discosDiv.innerHTML="";
-    
+    discosDiv.innerHTML='<h1>Problemas de conección, El servidor puede tardar unos minutos en encenderse...</h1>'
     fetch(direccionApi + "/album") //traer los albums.
     // fetch( + "/album") //traer los albums.
       .then(response => {
