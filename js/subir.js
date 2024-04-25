@@ -69,19 +69,16 @@ class Subir {
                 for (let i = 0; i < files.length; i++) {
                     form.append('files', files[i]);
                 }
-                // this.imagenURL= (typeof this.imagenURL !== 'undefined')? this.imagenURL : null;
-                console.log(this.imagenURL);
                 form.append('img', this.imagenURL);
 
-                console.log(form);
-                // alert("acordarse de descomentar abajo")
                 let miUri =
                     encodeURIComponent(inputs[0].value) + "/" +
                     encodeURIComponent(inputs[1].value) + "/" +
                     encodeURIComponent(inputs[2].value) + "/" +
                     encodeURIComponent(inputs[3].value);
-                console.log(miUri);
 
+                discosDiv.innerHTML='<h1>Subiendo, Puede tardar unos segundos</h1>'
+                
                 fetch(direccionApi + "/subir/" + miUri, {
                     method: 'POST',
                     mode: 'no-cors',
@@ -90,7 +87,7 @@ class Subir {
                 })
                     .then(response => response.text())
                     .then(data => {
-                        console.log(data);
+                        discosDiv.innerHTML='<h1>Subido Con exito, en unos segundos aparecerá en la seccion Artistas</h1>'
 
                     })
                     .catch(error => {
@@ -167,7 +164,7 @@ class Subir {
                 // cancion.direccion = archivo[x].name
                 canciones.push(cancion);
             }
-            console.log(canciones);
+            // console.log(canciones);
 
             this.crearTabla(canciones);
         })
@@ -215,26 +212,10 @@ class Subir {
                 let src = encodeURIComponent(respuesta.artista.nombre) + "/" +
                     encodeURIComponent(respuesta.titulo) + "/" +
                     encodeURIComponent(respuesta.img);
-                // console.log(respuesta);
-                // console.log(src);
 
                 this.imagen.setAttribute("style", "background-image: " +
                     "url(" + direccionApi + "/dameImagen/" + src + ")");
                 this.imagenURL= direccionApi + "/dameImagen/" + src;
-                // fetch(direccionApi+"/dameImagen/"+src)
-                //     .then(response => response.blob())
-                //     .then(blob => {
-                //         // Crear una URL de objeto para el objeto Blob
-                //         const imageUrlObject = URL.createObjectURL(blob);
-
-                //         // Asignar la URL de objeto al elemento input
-                //         // const inputElement = document.getElementById('fileInput');
-                //         this.imgInput.src= imageUrlObject;
-                //     })
-                //     .catch(error => console.error('Error al cargar la imagen:', error));
-
-
-
                 this.fechaInput.innerHTML = respuesta.fecha;
                 this.descripcion.value = respuesta.descripcion;
 

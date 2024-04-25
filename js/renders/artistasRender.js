@@ -34,7 +34,7 @@ function artistas(){
         cargarRocola(1, false);
       })
       .catch(error => {
-        console.error('Ocurrió un error:', error);
+        discosDiv.innerHTML='<h1>Problemas de conección, El servidor puede tardar unos minutos en encenderse...</h1>'
       });
 
 

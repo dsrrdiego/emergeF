@@ -11,6 +11,9 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
+h1{
+    color:#ccff00;
+}
 
 /* heder y menu*/
 header{
@@ -55,12 +58,20 @@ nav a{
 }
 #imagenSubir{
     max-height: 45px;
-
+    
 }
 #imagen{
-    width:100px;
-    height: 100px;
-background-color: red;
+    width:200px;
+    height: 150px;
+    background-image: url('../images/subir.png') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#divDeSelects{
+    /* padding: 10%; */
+}
+select{
+    width:100%;
 }
 
 nav li{
@@ -366,7 +377,15 @@ th{
 }
 
 input{
-    max-width: 100%;
+    margin: 0;
+    padding-left: 10%;
+    border: none;
+    background: none;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    box-sizing: border-box;
+    max-width:100%;
     background-color: transparent;
     color: rgb(167, 28, 28);
 }
@@ -551,7 +570,9 @@ a{
     #discosDiv{
         flex-direction: row;
         width:80%;
+        justify-content: center;
     }
+    
     
     
 
